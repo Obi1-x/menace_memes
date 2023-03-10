@@ -1,0 +1,14 @@
+#node modules folder
+node_modules
+
+#env variables
+.env
+
+#deta CLI
+.deta
+
+#Google credential.
+./to_backend/meme-menace-firebase-adminsdk-tjdg1-41625b4048.json
+
+#Database
+./to_backend/DB.json
