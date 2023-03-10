@@ -3,6 +3,7 @@ require('dotenv').config(); //Try removing this
 const express = require('express'); //returns a function
 const app = express(); //Returns an object of type Express
 app.use(express.json()); //Allows our server to accept JSON parsing as a body in POST command or so.
+const serverless = require('serverless-http');
 const fs = require('fs');
 
 const bot_Import = require('./to_frontend/telegrafAPI');
@@ -13,9 +14,9 @@ const _url =  bot_Import.hookUrl;
 
 const repo = bot_Import.kBoards.daBase;
 
-app.use(botMod.webhookCallback("/" + bToken));
+//app.use(botMod.webhookCallback("/" + bToken));
 //botMod.telegram.setWebhook(_url + bToken); // Run this once to connect the webhook.
-botMod.startWebhook("/" + bToken, null, null); //To start the webhook.
+//botMod.startWebhook("/" + bToken, null, null); //To start the webhook.
 
 app.get('/', async (req, res) => {
     console.log("Welcome to this endpoint!");
@@ -46,9 +47,28 @@ app.get('/db', async (req, res) => {
 
 
 
+const router = express.Router();
+
+router.get("/", (req, res) => {
+    res.join({
+        "hello": "hi!"
+    });
+});
+
+app.use('/.netlify/functions/api', router);
+
+
 module.exports = app;
+module.exports.handler = serverless(app);
 
 /*
 const port = 8085;
 app.listen(port, () => console.log(`Listening at ${port}`));
 botMod.launch();*/
+
+
+/* 
+,
+    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
+     */

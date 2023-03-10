@@ -1,6 +1,9 @@
 #node modules folder
 node_modules
 
+#Netlify functions folder
+functions
+
 #env variables
 .env
 
@@ -11,4 +14,4 @@ node_modules
 ./to_backend/meme-menace-firebase-adminsdk-tjdg1-41625b4048.json
 
 #Database
-./to_backend/DB.json
+./src/to_backend/DB.json
