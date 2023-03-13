@@ -17,9 +17,9 @@ const _url =  bot_Import.hookUrl;
 
 const repo = bot_Import.kBoards.daBase;
 
-//app.use(botMod.webhookCallback("/" + bToken));
-//botMod.telegram.setWebhook(_url + bToken); // Run this once to connect the webhook.
-//botMod.startWebhook("/" + bToken, null, null); //To start the webhook.
+app.use(botMod.webhookCallback("/" + bToken));
+botMod.telegram.setWebhook(_url + bToken); // Run this once to connect the webhook.
+botMod.startWebhook("/" + bToken, null, null); //To start the webhook.
 
 app.get('/', async (req, res) => {
     console.log("Welcome to this endpoint!");
