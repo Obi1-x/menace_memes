@@ -15,3 +15,6 @@ functions
 
 #Database
 ./src/to_backend/DB.json
+
+# Local Netlify folder
+.netlify
