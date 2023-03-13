@@ -5,6 +5,8 @@ const app = express(); //Returns an object of type Express
 app.use(express.json()); //Allows our server to accept JSON parsing as a body in POST command or so.
 const fs = require('fs');
 
+//const path = require('path');
+
 //const serverless = require('serverless-http');
 
 module.exports.handler = async function (event, context) { 
