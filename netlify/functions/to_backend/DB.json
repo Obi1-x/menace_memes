@@ -1,0 +1,5 @@
+{
+    "admins": { "name": "Admins DB" },
+    "users": { "name": "Users DB" },
+    "memes": { "name": "Memes DB" }
+}
