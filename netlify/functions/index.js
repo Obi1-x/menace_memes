@@ -48,6 +48,8 @@ app.get('/db', async (req, res) => {
     });
 });
 
+console.log("About to return");
+
 return {
     statusCode: 200,
     body: "Working"
