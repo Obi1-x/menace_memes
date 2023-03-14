@@ -6,4 +6,5 @@
 [functions]
         node_bundler = "esbuild"
         external_node_modules = ["express"]
-        included_files = ["all/channels.json"]
+        directory = "netlify/functions"
+        included_files = ["to_backend/**.json"]
