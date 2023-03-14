@@ -1,4 +1,6 @@
 const fs = require('fs');
+const path = require('path');  //path.join('/path', 'to', 'test.txt'); // '/path/to/test.txt'
+//const file_path = path.join(__dirname, `./netlify/functions/to_backend/DB.json`); __dirname  //`${__dirname}/to_backend/DB.json`
 
 var logBox = {};
 var DB = {};
@@ -12,14 +14,13 @@ var memesDatabase = {};*/
 
 //========================DB REFERNCES.
 const getDB = async () => {
-        fs.readFile(`${__dirname}/to_backend/DB.json`, "utf8", (err, jsonString) => {
+        fs.readFile("./netlify/functions/to_backend/DB.json", "utf8", (err, jsonString) => {
             if(err) console.log("DB read failed!", err); //Try again.
             else if(!err){
                 try {
                     DB = JSON.parse(jsonString);
                     console.log("Entire DB", DB);
-                    console.log("Dir name_2:", __dirname);
-                    //setDB();
+                    setDB();
                 } catch (error) {
                     console.log("Error parsing JSON string: ", error);
                 }
@@ -33,7 +34,7 @@ const setDB = async () => {
     if (DB) {
         const writingData = JSON.stringify(DB);
         console.log("Commencing write...");
-        fs.writeFile(`${__dirname}/to_backend/DB.json`, writingData, (err) => {
+        fs.writeFile("./netlify/functions/to_backend/DB.json", writingData, (err) => {
             if (err) {
                 logBox["Writing"] = "Error updating DB file" + err;
                 console.log("Error updating DB file", err);
