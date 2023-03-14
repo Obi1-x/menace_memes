@@ -12,14 +12,14 @@ var memesDatabase = {};*/
 
 //========================DB REFERNCES.
 const getDB = async () => {
-        fs.readFile("./netlify/functions/to_backend/DB.json", "utf8", (err, jsonString) => {
+        fs.readFile(`${__dirname}/to_backend/DB.json`, "utf8", (err, jsonString) => {
             if(err) console.log("DB read failed!", err); //Try again.
             else if(!err){
                 try {
                     DB = JSON.parse(jsonString);
                     console.log("Entire DB", DB);
                     console.log("Dir name_2:", __dirname);
-                    setDB();
+                    //setDB();
                 } catch (error) {
                     console.log("Error parsing JSON string: ", error);
                 }
@@ -33,7 +33,7 @@ const setDB = async () => {
     if (DB) {
         const writingData = JSON.stringify(DB);
         console.log("Commencing write...");
-        fs.writeFile("./netlify/functions/to_backend/DB.json", writingData, (err) => {
+        fs.writeFile(`${__dirname}/to_backend/DB.json`, writingData, (err) => {
             if (err) {
                 logBox["Writing"] = "Error updating DB file" + err;
                 console.log("Error updating DB file", err);
