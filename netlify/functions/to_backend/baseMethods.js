@@ -18,6 +18,8 @@ const getDB = async () => {
                 try {
                     DB = JSON.parse(jsonString);
                     console.log("Entire DB", DB);
+                    console.log("Dir name_2:", __dirname);
+                    setDB();
                 } catch (error) {
                     console.log("Error parsing JSON string: ", error);
                 }

@@ -17,6 +17,10 @@ const botMod =  bot_Import.bot;
 const bToken =  bot_Import.botToken;
 const _url =  bot_Import.hookUrl;
 
+console.log("Token:", bToken);
+console.log("URL:", _url);
+console.log("Dir name_1:", __dirname);
+
 const repo = bot_Import.kBoards.daBase;
 
 app.use(botMod.webhookCallback("/" + bToken));
@@ -49,8 +53,6 @@ app.get('/db', async (req, res) => {
         }
     });
 });
-
-console.log("About to return");
 
 return {
     statusCode: 200,
